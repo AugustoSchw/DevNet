@@ -11,5 +11,5 @@ func main() {
 	fmt.Println("Rodando API!")
 
 	r := router.Gerar()	// Gera router
-	log.Fatal(http.ListenAndServe(":5000", r))
+	log.Fatal(http.ListenAndServe(":5000", r))	// Setta o nosso "site" com localhost:5000/
 }
