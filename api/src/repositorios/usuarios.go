@@ -157,7 +157,7 @@ func (repositorio Usuarios) BuscarPorEmail(email string) (modelos.Usuario, error
 // Seguir permite um usuario seguir outro
 func (repositorio Usuarios) Seguir(usuarioID, seguidorID uint64) error {
 	statement, erro := repositorio.db.Prepare(
-		"insert ignore into seguidores (usuario_id, seguidor_id) values (?, ?)",	// Sentido do "ignore": se um usuario ja seguir outro, nao adiciona mais uma vez na tabela
+		"insert ignore into seguidores (usuario_id, seguidor_id) values (?, ?)", // Sentido do "ignore": se um usuario ja seguir outro, nao adiciona mais uma vez na tabela
 	)
 	if erro != nil {
 		return erro
@@ -172,14 +172,18 @@ func (repositorio Usuarios) Seguir(usuarioID, seguidorID uint64) error {
 
 }
 
+// PararDeSeguir faz a logica para o unfollow
+func (repositorio Usuarios) PararDeSeguir(usuarioID, seguidorID uint64) error {
+	statement, erro := repositorio.db.Prepare(
+		"delete from seguidores where usuario_id = ? and seguidor_id = ?",
+	)
+	if erro != nil {
+		return erro
+	}
 
+	if _, erro = statement.Exec(usuarioID, seguidorID); erro != nil {
+		return erro
+	}
 
-
-
-
-
-
-
-
-
-
+	return nil
+}
