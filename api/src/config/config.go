@@ -14,6 +14,9 @@ var (
 	StringConexaoBanco = ""
 	// Porta é onde a API vai estar rodando no momento
 	Porta = 0
+
+	// SecretKey é uam chave utilizada para assinar o token
+	SecretKey []byte
 )
 
 // Carregar vai inicializar as variáveis de ambienet
@@ -21,7 +24,7 @@ func Carregar() {
 	var erro error
 
 	if erro = godotenv.Load(); erro != nil {
-		log.Fatal(erro)		// Mata a execução, pois as informações são esseciais para o inicio do programa
+		log.Fatal(erro) // Mata a execução, pois as informações são esseciais para o inicio do programa
 	}
 
 	Porta, erro = strconv.Atoi(os.Getenv("API_PORT"))
@@ -34,4 +37,6 @@ func Carregar() {
 		os.Getenv("DB_SENHA"),
 		os.Getenv("DB_NOME"),
 	)
+
+	SecretKey = []byte(os.Getenv("SECRET_KEY"))
 }
