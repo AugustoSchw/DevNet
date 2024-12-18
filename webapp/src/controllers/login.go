@@ -1,8 +1,11 @@
 package controllers
 
-import "net/http"
+import (
+	"net/http"
+	"webapp/src/utils"
+)
 
 // CarregarTelaDeLogin carrega a página de login
 func CarregarTelaDeLogin(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Tela de Login"))
+	utils.ExecutarTemplate(w, "login.html", nil)	// nil pq não temos dados para passar para o template
 }

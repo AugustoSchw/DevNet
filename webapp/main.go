@@ -5,12 +5,15 @@ import (
 	"log"
 	"net/http"
 	"webapp/src/router"
+	"webapp/src/utils"
 )
 
 func main() {
 	// Start the web server
-	fmt.Println("webapp iniciado")
-
+	utils.CarregarTemplates()
 	r := router.Gerar()
+	
+	
+	fmt.Println("webapp iniciado")
 	log.Fatal(http.ListenAndServe(":3000", r))
 }
