@@ -73,7 +73,7 @@ input::placeholder {
 }
 
 .devnet-form > div {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .btn-devnet {
@@ -86,7 +86,7 @@ input::placeholder {
     background-color: var(--primary-color);
     outline: none;
     border: none;
-    border-radius: 5px; /* Added to round the borders */
+    border-radius: 5px;     
 }
 
 .btn-devnet:hover{
