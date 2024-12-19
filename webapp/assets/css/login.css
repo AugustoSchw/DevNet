@@ -1,9 +1,94 @@
 @import url('variables.css');
 
 span {
-    color: var(--text-color)
+    color: var(--text-color);
 }
 
 body {
     background-color: var(--background-color);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+input {
+    font-size: 18px;
+    color: var(--text-color);
+    background-color: var(--text-box-color);
+    line-height: 1.2;
+    display: block;
+    width: 100%;
+    height: 62px;
+    padding: 0px 20px 0 38px;
+    margin-bottom: 7px; 
+    border-radius: 10px;
+}
+
+input::placeholder {
+    color: var(--text-color);
+}
+
+.container-login {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.container-login > div {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--text-box-color);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.devnet-form > span {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+}
+
+.devnet-form > div {
+    margin-bottom: 20px;
+}
+
+.btn-devnet {
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.2;
+    padding: 0 20px;
+    width: 100%;
+    height: 62px;
+    background-color: var(--primary-color);
+    outline: none;
+    border: none;
+    border-radius: 5px; /* Added to round the borders */
+}
+
+.btn-devnet:hover{
+    cursor: pointer;
 }
